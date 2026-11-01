@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Intake | Byte Consulting</title>
+  <!-- Unlisted page: keep it out of search engines and crawlers -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="intake-page">
+
+  <nav class="nav-slim">
+    <div class="container">
+      <a href="index.html" class="logo">Byte Consulting</a>
+    </div>
+  </nav>
+
+  <header class="intake-hero">
+    <div class="container">
+      <h1>Project Intake</h1>
+      <p>Tell me a bit about what you're working on. The more detail you share up front, the more useful
+        our first conversation will be.</p>
+    </div>
+  </header>
+
+  <main class="container intake-main">
+    <!--
+      Submissions:
+      Leave data-endpoint="" to open a pre-filled email draft (no server needed).
+      To post to a form service instead, set data-endpoint to its endpoint, e.g.
+      data-endpoint="https://formspree.io/f/your-id" (a Formspree-style JSON endpoint).
+      The page is deliberately unlinked and marked noindex — share the URL directly.
+    -->
+    <form id="intakeForm" class="intake-form" action="#" method="post"
+          data-endpoint="" autocomplete="on">
+
+      <!-- ============ 1. Request type ============ -->
+      <section class="form-step">
+        <h2 class="step-title"><span class="step-num">1</span> What can I help with?</h2>
+        <div class="mode-options">
+          <label class="mode-card">
+            <input type="radio" name="requestType" value="New Project" required>
+            <span class="mode-icon" aria-hidden="true">◆</span>
+            <span class="mode-name">New Project</span>
+            <span class="mode-desc">Building something new, or reworking an existing system.</span>
+          </label>
+          <label class="mode-card">
+            <input type="radio" name="requestType" value="Security Program / Review" required>
+            <span class="mode-icon" aria-hidden="true">◈</span>
+            <span class="mode-name">Security Program / Review</span>
+            <span class="mode-desc">A security program, assessment, audit readiness, or review.</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- ============ 2. Contact ============ -->
+      <section class="form-step">
+        <h2 class="step-title"><span class="step-num">2</span> Your details</h2>
+        <div class="field-grid">
+          <div class="field">
+            <label for="name">Full name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="company">Company / organization</label>
+            <input type="text" id="company" name="company" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="hint-inline">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================== -->
+      <!-- ============ NEW PROJECT BRANCH ===================== -->
+      <!-- ===================================================== -->
+      <div class="branch" data-branch="New Project" hidden>
+
+        <section class="form-step">
+          <h2 class="step-title"><span class="step-num">3</span> About the project</h2>
+
+          <div class="field">
+            <label for="projectName">Project or initiative name <span class="req">*</span></label>
+            <input type="text" id="projectName" name="projectName" placeholder="e.g. Customer portal rebuild">
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="projectStage">Where is it today? <span class="req">*</span></label>
+              <select id="projectStage" name="projectStage" required>
+                <option value="">Select one…</option>
+                <option>Just an idea / exploring feasibility</option>
+                <option>Goals defined, nothing built yet</option>
+                <option>Design or architecture in progress</option>
+                <option>Build in progress</option>
+                <option>Existing system that needs rework or rescue</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="projectTeam">Who else is involved? <span class="hint-inline">(optional)</span></label>
+              <input type="text" id="projectTeam" name="projectTeam"
+                     placeholder="e.g. 2 internal developers, a designer, a vendor">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="projectDescription">Describe the project and the outcome you want <span class="req">*</span></label>
+            <textarea id="projectDescription" name="projectDescription" rows="4" required
+                      placeholder="What are you trying to build or change? Who is it for? What problem does it solve?"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="projectFacts">Key facts and constraints <span class="req">*</span></label>
+            <textarea id="projectFacts" name="projectFacts" rows="4" required
+                      placeholder="Existing systems or vendors to work with, data involved, regulatory constraints, fixed dates, team capacity, anything already decided…"></textarea>
+            <p class="hint">Sketch-level detail is fine — I'll dig into specifics on our call.</p>
+          </div>
+
+          <div class="field">
+            <label for="projectNeeds">What do you need from me? <span class="req">*</span></label>
+            <textarea id="projectNeeds" name="projectNeeds" rows="3" required
+                      placeholder="e.g. architecture and build, security review of a design, technical due diligence, hands-on implementation, mentoring an existing team"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="successCriteria">How will you measure success? <span class="hint-inline">(optional)</span></label>
+            <textarea id="successCriteria" name="successCriteria" rows="3"
+                      placeholder="e.g. launch by Q2, cut manual processing time in half, pass a customer security questionnaire"></textarea>
+          </div>
+
+          <fieldset class="field">
+            <legend>Platforms and technologies involved</legend>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="platforms" value="Web application"><span>Web application</span></label>
+              <label class="check"><input type="checkbox" name="platforms" value="Mobile application"><span>Mobile application</span></label>
+              <label class="check"><input type="checkbox" name="platforms" value="API / backend service"><span>API / backend service</span></label>
+              <label class="check"><input type="checkbox" name="platforms" value="Cloud infrastructure (AWS/Azure/GCP)"><span>Cloud infrastructure</span></label>
+              <label class="check"><input type="checkbox" name="platforms" value="Data / analytics pipeline"><span>Data / analytics</span></label>
+              <label class="check"><input type="checkbox" name="platforms" value="AI / LLM integration"><span>AI / LLM integration</span></label>
+              <label class="check"><input type="checkbox" name="platforms" value="CI/CD and DevOps"><span>CI/CD &amp; DevOps</span></label>
+              <label class="check"><input type="checkbox" name="platforms" value="Internal tooling"><span>Internal tooling</span></label>
+              <label class="check"><input type="checkbox" name="platforms" value="Other / not sure"><span>Other / not sure</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Compliance or data-sensitivity requirements</legend>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="projectCompliance" value="None known"><span>None known</span></label>
+              <label class="check"><input type="checkbox" name="projectCompliance" value="GDPR / privacy"><span>GDPR / privacy</span></label>
+              <label class="check"><input type="checkbox" name="projectCompliance" value="HIPAA"><span>HIPAA</span></label>
+              <label class="check"><input type="checkbox" name="projectCompliance" value="PCI-DSS"><span>PCI-DSS</span></label>
+              <label class="check"><input type="checkbox" name="projectCompliance" value="SOC 2"><span>SOC 2</span></label>
+              <label class="check"><input type="checkbox" name="projectCompliance" value="ISO 27001"><span>ISO 27001</span></label>
+              <label class="check"><input type="checkbox" name="projectCompliance" value="Industry-specific"><span>Industry-specific</span></label>
+              <label class="check"><input type="checkbox" name="projectCompliance" value="Not sure"><span>Not sure</span></label>
+            </div>
+          </fieldset>
+        </section>
+
+        <section class="form-step">
+          <h2 class="step-title"><span class="step-num">4</span> Budget and timeline</h2>
+          <div class="field-grid">
+            <div class="field">
+              <label for="projectBudget">Budget range <span class="req">*</span></label>
+              <select id="projectBudget" name="projectBudget" required>
+                <option value="">Select a range…</option>
+                <option>Under $5,000</option>
+                <option>$5,000 – $15,000</option>
+                <option>$15,000 – $30,000</option>
+                <option>$30,000 – $60,000</option>
+                <option>$60,000 – $100,000</option>
+                <option>$100,000+</option>
+                <option>Ongoing / retainer</option>
+                <option>Not sure yet — help me scope it</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="projectTimeline">Timeline <span class="req">*</span></label>
+              <select id="projectTimeline" name="projectTimeline" required>
+                <option value="">Select a timeframe…</option>
+                <option>ASAP — within 2 weeks</option>
+                <option>Within 1 month</option>
+                <option>1–3 months</option>
+                <option>3–6 months</option>
+                <option>6+ months</option>
+                <option>Flexible / no fixed date</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="projectStart">Target start date <span class="hint-inline">(optional)</span></label>
+              <input type="date" id="projectStart" name="projectStart">
+            </div>
+            <div class="field">
+              <label for="projectDeadline">Hard deadline or launch date <span class="hint-inline">(optional)</span></label>
+              <input type="date" id="projectDeadline" name="projectDeadline">
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /New Project branch -->
+
+      <!-- ===================================================== -->
+      <!-- ============ SECURITY BRANCH ======================== -->
+      <!-- ===================================================== -->
+      <div class="branch" data-branch="Security Program / Review" hidden>
+
+        <section class="form-step">
+          <h2 class="step-title"><span class="step-num">3</span> About the engagement</h2>
+
+          <fieldset class="field">
+            <legend>What kind of help are you looking for? <span class="req">*</span></legend>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="engagementType" value="Security program build-out"><span>Security program build-out</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="Security architecture review"><span>Architecture review</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="Cloud security review"><span>Cloud security review</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="DevSecOps / pipeline review"><span>DevSecOps / pipeline</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="Vulnerability management program"><span>Vulnerability management</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="Compliance readiness (SOC 2 / ISO 27001)"><span>Compliance readiness</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="Penetration test coordination"><span>Pen test coordination</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="Incident response readiness"><span>Incident response readiness</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="Policies and documentation"><span>Policies &amp; documentation</span></label>
+              <label class="check"><input type="checkbox" name="engagementType" value="Other"><span>Other</span></label>
+            </div>
+            <p class="field-error" id="engagementTypeError" hidden>Select at least one option, or tick "I'm not sure yet" below.</p>
+          </fieldset>
+
+          <div class="field">
+            <label for="securityScope">Systems or environments in scope <span class="hint-inline">(optional)</span></label>
+            <textarea id="securityScope" name="securityScope" rows="3"
+                      placeholder="e.g. AWS production account, internal SaaS app, on-prem Windows estate, CI/CD pipelines"></textarea>
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="securityPosture">Current security posture</label>
+              <select id="securityPosture" name="securityPosture">
+                <option value="">Select one…</option>
+                <option>No formal program</option>
+                <option>Ad hoc / reactive</option>
+                <option>Documented but not consistently followed</option>
+                <option>Active program with some gaps</option>
+                <option>Mature, audited or certified</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="securitySize">People / systems affected</label>
+              <input type="text" id="securitySize" name="securitySize"
+                     placeholder="e.g. 40 staff, 3 production systems">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="specificNeeds">Specific need or request</label>
+            <textarea id="specificNeeds" name="specificNeeds" rows="4"
+                      placeholder="Tell me exactly what you need reviewed, built, or fixed."></textarea>
+          </div>
+
+          <label class="check check-standalone">
+            <input type="checkbox" id="needUnknown" name="needUnknown" value="Yes">
+            <span>I don't have a specific need yet — I'd rather explain my concerns</span>
+          </label>
+
+          <div class="field alt-field" id="generalConcernsField">
+            <label for="generalConcerns">General concerns <span class="hint-inline">(use this if there's no specific request)</span></label>
+            <textarea id="generalConcerns" name="generalConcerns" rows="4"
+                      placeholder="What's worrying you? e.g. we're not sure where our exposure is, we keep failing customer security questionnaires, nobody owns security day to day…"></textarea>
+            <p class="field-error" id="needsError" hidden>Please describe your specific need or your general concerns.</p>
+          </div>
+        </section>
+
+        <section class="form-step">
+          <h2 class="step-title"><span class="step-num">4</span> Drivers, budget and timeframe</h2>
+
+          <fieldset class="field">
+            <legend>What's driving this?</legend>
+            <div class="check-grid">
+              <label class="check"><input type="checkbox" name="drivers" value="Customer requirement"><span>Customer requirement</span></label>
+              <label class="check"><input type="checkbox" name="drivers" value="Contract / partner requirement"><span>Contract requirement</span></label>
+              <label class="check"><input type="checkbox" name="drivers" value="Compliance deadline"><span>Compliance deadline</span></label>
+              <label class="check"><input type="checkbox" name="drivers" value="Recent incident or near miss"><span>Recent incident</span></label>
+              <label class="check"><input type="checkbox" name="drivers" value="Board / funding request"><span>Board request</span></label>
+              <label class="check"><input type="checkbox" name="drivers" value="Insurance requirement"><span>Insurance requirement</span></label>
+              <label class="check"><input type="checkbox" name="drivers" value="Proactive improvement"><span>Proactive improvement</span></label>
+              <label class="check"><input type="checkbox" name="drivers" value="Other"><span>Other</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="securityBudget">Budget range <span class="req">*</span></label>
+              <select id="securityBudget" name="securityBudget" required>
+                <option value="">Select a range…</option>
+                <option>Under $5,000</option>
+                <option>$5,000 – $15,000</option>
+                <option>$15,000 – $30,000</option>
+                <option>$30,000 – $60,000</option>
+                <option>$60,000 – $100,000</option>
+                <option>$100,000+</option>
+                <option>Ongoing / retainer</option>
+                <option>Not sure yet — help me scope it</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="securityTimeline">Timeframe <span class="req">*</span></label>
+              <select id="securityTimeline" name="securityTimeline" required>
+                <option value="">Select a timeframe…</option>
+                <option>ASAP — within 2 weeks</option>
+                <option>Within 1 month</option>
+                <option>1–3 months</option>
+                <option>3–6 months</option>
+                <option>6+ months</option>
+                <option>Flexible / no fixed date</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="securityStart">Target start date <span class="hint-inline">(optional)</span></label>
+              <input type="date" id="securityStart" name="securityStart">
+            </div>
+            <div class="field">
+              <label for="securityDeadline">Hard deadline <span class="hint-inline">(optional)</span></label>
+              <input type="date" id="securityDeadline" name="securityDeadline">
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /Security branch -->
+
+      <!-- ============ Final ============ -->
+      <section class="form-step">
+        <h2 class="step-title"><span class="step-num" id="finalStepNum">3</span> Anything else?</h2>
+
+        <div class="field">
+          <label for="extraNotes">Additional context <span class="hint-inline">(optional)</span></label>
+          <textarea id="extraNotes" name="extraNotes" rows="3"
+                    placeholder="Anything that didn't fit above?"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="heardAbout">How did you hear about me? <span class="hint-inline">(optional)</span></label>
+          <input type="text" id="heardAbout" name="heardAbout">
+        </div>
+
+        <!-- Honeypot for bots -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Leave this empty</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <label class="check check-standalone">
+          <input type="checkbox" id="consent" name="consent" value="Agreed" required>
+          <span>I'm happy to be contacted about this request. <span class="req">*</span></span>
+        </label>
+
+        <div class="submit-row">
+          <button type="submit" class="btn1" id="submitBtn">Send my answers</button>
+          <p class="hint">Submitting opens a pre-filled email to
+            <a href="mailto:jadenbrucehiggins@gmail.com">jadenbrucehiggins@gmail.com</a>.
+            Nothing is sent until you send that email.</p>
+        </div>
+
+        <div class="form-alert" id="formAlert" hidden role="alert"></div>
+      </section>
+    </form>
+
+    <!-- Success / summary panel -->
+    <section class="form-step summary-panel" id="summaryPanel" hidden aria-live="polite">
+      <h2 class="step-title">Your answers</h2>
+      <p id="summaryIntro">Thanks — your email draft should be open. If it didn't open, copy the summary below and send it to
+        <a href="mailto:jadenbrucehiggins@gmail.com">jadenbrucehiggins@gmail.com</a>.</p>
+      <pre id="summaryText" class="summary-text"></pre>
+      <div class="submit-row">
+        <button type="button" class="btn1" id="copyBtn">Copy summary</button>
+        <a class="btn-ghost" href="mailto:jadenbrucehiggins@gmail.com" id="mailtoFallback">Open email instead</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Higgins Security Consulting. All Rights Reserved.</p>
+  </footer>
+
+  <script src="intake.js"></script>
+</body>
+</html>
